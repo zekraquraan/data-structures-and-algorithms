@@ -1,4 +1,16 @@
-arr = [1, 2, 3, 4, 5]
-val = 6
-new_arr = insertShiftArray(arr, val)
-print(new_arr)  # [1, 2, 3, 6, 4, 5]
+def insertShiftArray(arr,x):
+    '''
+    This function inserts an element into an array 
+    and shifts the other elements to make place for it.
+    :param arr: list
+    :param x: int
+    :return: list
+    '''
+    midArr=len(arr) // 2
+    if len(arr) % 2 == 0:
+      arr.insert(midArr, x)
+    else:
+       int(midArr)
+       arr.insert(midArr+1, x)
+    return arr
+  
