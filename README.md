@@ -1,5 +1,5 @@
 ## Data-structures-and-algorithms
-[](./insert/)
-[](./reverse-array/)
+[array-insert-shift](./insert/inser.py)
+[](./reverse-array/datastructures-and-algorithms.py)
 
 
