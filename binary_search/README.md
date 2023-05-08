@@ -1,7 +1,7 @@
 # Challenge Title
 # Binary search in a sorted 1D array
 
-
+# driver:Zekra quraan navigator:Malik abdelal
 
 ## Whiteboard Process
 
@@ -16,3 +16,4 @@
 ## Solution
 # RUN this code [](./binary_search.py)
 
+# 
