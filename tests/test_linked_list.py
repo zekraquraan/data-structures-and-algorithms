@@ -1,25 +1,37 @@
-from linked_list.linked_list import Node, LinkedList
-import unittest
+import pytest
 
-class LinkedListTests(unittest.TestCase):
-    def test_empty_list(self):
-        linked_list = LinkedList()
-        self.assertEqual(linked_list.to_string(), "NULL")
+from linked_list.linked_list import LinkedList,Node
 
-    def test_insert(self):
-        linked_list = LinkedList()
-        linked_list.insert(3)
-        linked_list.insert(2)
-        linked_list.insert(1)
-        self.assertEqual(linked_list.to_string(), "{ 1 } -> { 2 } -> { 3 } -> NULL")
+def test_empty_list():
+    ll = LinkedList()
+    assert ll.head == None
 
-    def test_includes(self):
-        linked_list = LinkedList()
-        linked_list.insert(3)
-        linked_list.insert(2)
-        linked_list.insert(1)
-        self.assertTrue(linked_list.includes(2))
-        self.assertFalse(linked_list.includes(4))
+def test_insert_single_node():
+    ll = LinkedList()
+    ll.insert(5)
+    assert ll.head.value == 5
 
-if __name__ == "__main__":
-    unittest.main()
+
+def test_insert_multiple_nodes():
+    ll = LinkedList()
+    ll.insert(5)
+    ll.insert(10)
+    ll.insert(15)
+    assert ll.head.value == 15
+    assert ll.head.next.value == 10
+    assert ll.head.next.next.value == 5
+
+def test_includes():
+    ll = LinkedList()
+    ll.insert(5)
+    ll.insert(10)
+    ll.insert(15)
+    assert ll.includes(10) == True
+    assert ll.includes(20) == False
+
+def test_to_string():
+    ll = LinkedList()
+    ll.insert(5)
+    ll.insert(10)
+    ll.insert(15)
+    assert ll.to_string() == "{ 15 } -> { 10 } -> { 5 } -> NULL"

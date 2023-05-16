@@ -2,8 +2,8 @@
 # linked list
 
 ## Whiteboard Process
-[](./wh1313.png)
-حغ
+![whiteBoard](./insert2.png)
+
 ## Approach & Efficiency
 #  a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
 #  Linked List class, include a head property.
