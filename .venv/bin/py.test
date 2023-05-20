@@ -1,4 +1,4 @@
-#!/home/zekraquraan/datastructures-and-algorithms/.venv/bin/python3.10
+#!/home/zekraquraan/datastructures-and-algorithms/.venv/bin/python3.8
 # -*- coding: utf-8 -*-
 import re
 import sys
