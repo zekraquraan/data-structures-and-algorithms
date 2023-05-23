@@ -1,156 +1,90 @@
+
 class Node:
-    def __init__(self,value,nextNode=None):
-        self.value = value
-        self.next = nextNode
+    def __init__(self,value,next=None):
+        self.value=value
+        self.next=next
+    def __str__(self) -> str:
+        if self.next==None:
+            return f"Hi I am {self.value} the last node"
+        else:
+            return f"Hi I am {self.value} the next node after me is {self.next.value}"
+        
 
 class LinkedList:
     def __init__(self,head=None):
         self.head=head
-    
-    def insert(self,value):
-        newNode=Node(value)
-        newNode.next=self.head
-        self.head=newNode
-    
-    def includes(self,value):
-        current=self.head
-        while current:
-            if value == current.value:
-                return True
-            current=current.next
-        return False
-    
-    def ToString(self):
-        current=self.head
-        new_string=""
-        while current:
-            new_string+=f"{current.value} -> "
-            current=current.next
-        new_string+="None"
-        return new_string
 
-    def append(self, new_value):
-     new_node = Node(new_value)
-     if self.head is None:
-        self.head = new_node
-     else:
-        current = self.head
-        while current.next is not None:
+    def __str__(self):
+        return f"Hi I am the Linked List my value is {self.head.value} and the next node after me is {self.head.next.value}"
+    
+    def zipLists(self, other):
+        """
+        Merges two linked lists by alternating their elements.
+
+        Parameters:
+            self (LinkedList): The first linked list.
+            other (LinkedList): The second linked list.
+
+        Returns:
+            Node: The head node of the merged linked list.
+
+        Raises:
+            Exception: If both linked lists are empty.
+
+        Description:
+            This method merges two linked lists by alternating their elements.
+            The elements from the first linked list are appended first, followed by the elements from the second linked list.
+            The merged linked list is created and returned as a new linked list.
+        """
+        if not self.head and not other.head:
+            raise Exception("You can not merge two empty lists")
+        temp=[]
+        current1=self.head
+        current2=other.head
+        if not current1:
+            self.head=other.head
+        while current1 or current2:
+            if current1:
+                temp.append(current1)
+                current1=current1.next
+            if current2:
+                temp.append(current2)
+                current2=current2.next
+        for i in range(0,len(temp)-1):
+            temp[i].next=temp[i+1]
+        return self.head
+            
+    def to_string(self):
+        """
+        Converts the linked list to a string representation.
+
+        Returns:
+            str: The string representation of the linked list.
+
+        Description:
+            This method traverses the linked list and constructs a string representation of its elements.
+            The elements are enclosed in curly braces and separated by arrows "->".
+            The string representation is returned.
+        """
+        a=""
+        current=self.head
+        while current:
+            a=a+"{"+str(current.value)+"} "
+            a+="-> "
             current = current.next
-        current.next = new_node
-
-
-    def insert_before(self, value, new_value):
-     new_node = Node(new_value)
-     current = self.head
-     if current.value == value:
-        new_node.next=current
-        self.head=new_node
-        return
-     while current.next:
-        if current.next.value == value:
-            new_node.next = current.next
-            current.next = new_node
-            return
-        current = current.next
-
-     return
+        a+="Null"
+        return a
     
-    # head -> {1} -> {3} -> {2} -> X	3, 5	head -> {1} -> {5} -> {3} -> {2} -> X
-    
-    def Insert_After(self, value, new_value):
-     new_node = Node(new_value)
-     current = self.head
-
-     while current:
-        if current.value == value:
-            if current.next is None:
-                current.next = new_node
-                new_node.next = None
-            else:
-                new_node.next = current.next
-                current.next = new_node
-            return
-        current = current.next
-
-
-# head -> {1} -> {3} -> {8} -> {2} -> X	0	2
-    def linked_list_kth(self,k):
-       current=self.head
-       normal_list=[]
-       while current:
-          normal_list.insert(0, current.value)
-          current=current.next
-       if k>=len(normal_list) or k<-len(normal_list):
-          raise ValueError("Invalid value of k")
-       return normal_list[k]
-    
-    
-# {1} -> {3} -> {2} -> null	{5} -> {9} -> {4} -> null	{1} -> {5} -> {3} -> {9} -> {2} -> {4} -> null
-# {1} -> {3} -> null	{5} -> {9} -> {4} -> null	{1} -> {5} -> {3} -> {9} -> {4} -> null
-    def linked_list_zip(self,LL1=None, LL2=None):
-        merged_list=[]
-
-        pointer1 = LL1.head
-        pointer2 = LL2.head
-
-        while  pointer1 and  pointer2:
-            merged_list.append( pointer1.value)
-            merged_list.append( pointer2.value)
-            pointer1= pointer1.next
-            pointer2= pointer2.next
-
-        if pointer1 is not None:
-           merged_list.append(pointer1.value)
-
-        if pointer2 is not None:
-           merged_list.append(pointer2.value)
-           
-        if LL1.head is None :
-           return LL2
-        if LL2.head is None :
-           return LL1
-        
-               
-        merged_list.append(None)
-        return merged_list
-    
-       
-             
-
-
-        
-
-
-
-   
-   
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
-   
-    node1=LinkedList("node1")
-    node1.insert("node2")
-    node1.insert("node3")
-    
-    node2=LinkedList("node22")
-    node2.insert("node33")
-    node2.insert("node44")
-
-    zip=node2.linked_list_zip("{1} -> {3} -> {2} -> null","{5} -> {9} -> {4} -> null")
-    print(zip)
-
-    
+if __name__=="__main__":
+    nodel1=Node(2)
+    nodel2=Node(3,nodel1)
+    nodel3=Node(1,nodel2)
+    list1=LinkedList(nodel3)
+    print(list1.to_string())
+    nodeli1=Node(4)
+    nodeli2=Node(9,nodeli1)
+    nodeli3=Node(5,nodeli2)
+    list2=LinkedList(nodeli3)
+    print(list2.to_string())
+    list1.zipLists(list2)
+    print(list1.to_string())
