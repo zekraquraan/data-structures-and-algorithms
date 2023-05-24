@@ -1,3 +1,4 @@
+
 ## Data-structures-and-algorithms
 [](./insert/)
 [](./reverse-array/)
@@ -5,4 +6,10 @@
 [linked-list](./linked-list/linked-list.md)
 [linked-list-insertions](./linked-list-inserions.md)
 
+# data-structures-and-algorithms
 
+
+
+## Challenges
+
+  - [Array Reverse](./challenges/array_reverse.md)
