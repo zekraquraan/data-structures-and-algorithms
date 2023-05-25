@@ -34,18 +34,20 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
+   
     def kth_from_end(self, k):
         """
         Returns the value of the node that is k places from the end of the linked list.
 
         Args:
-            k: The distance from the end of the linked list. Must be a positive integer.
+            k: The distance from the end of the linked list. Must be an integer.
 
         Returns:
-            The value of the node that is k places from the end of the linked list, or None if k is invalid.
+            The value of the node that is k places from the end of the linked list, or None if k is invalid or
+            the node is not found.
         """
-        if k <= 0:
-            return None
+        if not isinstance(k, int):
+            raise Exception("k must be an integer.")
 
         p1 = self.head
         p2 = self.head
@@ -60,5 +62,8 @@ class LinkedList:
         while p1 is not None:
             p1 = p1.next
             p2 = p2.next
+
+        if p2 is None:
+            return None
 
         return p2.value
