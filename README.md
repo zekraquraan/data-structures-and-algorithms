@@ -1,5 +1,9 @@
 
 ## Data-structures-and-algorithms
+
+[array-insert-shift](./insert/inser.py)
+[](./reverse-array/datastructures-and-algorithms.py)
+
 [](./insert/)
 [](./reverse-array/)
 [binary-search](./binary_search/README.md)
@@ -7,6 +11,7 @@
 [linked-list-insertions](./linked_list/linked_list.md)
 
 # data-structures-and-algorithms
+
 
 
 
