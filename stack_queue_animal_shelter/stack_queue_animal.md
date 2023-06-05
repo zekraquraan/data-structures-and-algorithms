@@ -2,8 +2,8 @@
 ## First-in, First out Animal Shelter.
 
 ## Whiteboard Process
-![enqueue.whBoard](./enqueue2.png)
-![dequeue.whBoard](./dequeue2.png)
+![enqueue.whBoard](./enqueue.png)
+![dequeue.whBoard](./dequeue1.png)
 
 
 ## Approach & Efficiency
