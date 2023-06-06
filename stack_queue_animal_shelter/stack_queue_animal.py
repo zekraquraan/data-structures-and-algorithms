@@ -1,27 +1,10 @@
-class Animal:
-    """Represents an animal in the shelter."""
-
-    def __init__(self, species, name, arrival_time):
-        """
-        Initialize an Animal object.
-
-        Args:
-            species (str): The species of the animal.
-            name (str): The name of the animal.
-            arrival_time (int): The time the animal arrived at the shelter.
-        """
-        self.species = species
-        self.name = name
-        self.arrival_time = arrival_time
-
-
 class AnimalShelter:
     """Represents an animal shelter that can enqueue and dequeue animals."""
 
     def __init__(self):
         """Initialize an AnimalShelter object with empty lists for dogs and cats."""
-        self.dogs = []
-        self.cats = []
+        self.dogs = []  # stack for dogs
+        self.cats = []  # stack for cats
         self.arrival_time = 0
 
     def enqueue(self, animal):
@@ -50,19 +33,19 @@ class AnimalShelter:
             Animal or None: The dequeued Animal object if found, None otherwise.
         """
         if pref == "dog" and self.dogs:
-            return self.dogs.pop(0)
+            return self.dogs.pop()  # Popping from the end of the stack
         elif pref == "cat" and self.cats:
-            return self.cats.pop(0)
+            return self.cats.pop()  # Popping from the end of the stack
         elif pref is None:
             if self.dogs and self.cats:
-                if self.dogs[0].arrival_time < self.cats[0].arrival_time:
-                    return self.dogs.pop(0)
+                if self.dogs[-1].arrival_time < self.cats[-1].arrival_time:
+                    return self.dogs.pop()  # Popping from the end of the stack
                 else:
-                    return self.cats.pop(0)
+                    return self.cats.pop()  # Popping from the end of the stack
             elif self.dogs:
-                return self.dogs.pop(0)
+                return self.dogs.pop()  # Popping from the end of the stack
             elif self.cats:
-                return self.cats.pop(0)
+                return self.cats.pop()  # Popping from the end of the stack
         return None
 
 
@@ -79,10 +62,10 @@ if __name__ == "__main__":
     shelter.enqueue(dog2)
     shelter.enqueue(cat2)
 
-    print(shelter.dequeue("dog").name)  # Output: Buddy
-    print(shelter.dequeue("cat").name)  # Output: Fluffy
-    print(shelter.dequeue("dog").name)  # Output: Max
-    print(shelter.dequeue("cat").name)  # Output: Whiskers
+    print(shelter.dequeue("dog").name)  # Output: Max (Changed due to stack behavior)
+    print(shelter.dequeue("cat").name)  # Output: Whiskers (Changed due to stack behavior)
+    print(shelter.dequeue("dog").name)  # Output: Buddy (Changed due to stack behavior)
+    print(shelter.dequeue("cat").name)  # Output: Fluffy (Changed due to stack behavior)
     print(shelter.dequeue("dog"))       # Output: None (No more dogs in the shelter)
     animal = shelter.dequeue(None)
     if animal is not None:
