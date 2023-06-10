@@ -5,7 +5,7 @@ Multi-bracket Validation.
 ## Whiteboard Process:
 
 ![stack andd queue brackets](./st1.png)
-![stack2](./st22.png)
+![stack2](./brackets1.png)
 
 ## Approach & Efficiency:
 The function initializes an empty stack to keep track of the opening brackets encountered.

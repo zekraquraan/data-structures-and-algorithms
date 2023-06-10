@@ -8,4 +8,5 @@
 [linked_list_zip](./linked_list_zip/linked_list_zip.md)
 [stack_queue_animal](./stack_queue_animal_shelter/stack_queue_animal.md)
 [stack-queue-brackets](./stack_queue_brackets/stack_queue_brackets.md)
+[trees](./trees/trees.md)
 

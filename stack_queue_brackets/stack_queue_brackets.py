@@ -1,3 +1,6 @@
+from collections import deque
+
+
 def validate_brackets(string):
     """
     Validate whether the brackets in a given string are balanced.
@@ -33,7 +36,10 @@ def validate_brackets(string):
         >>> validate_brackets("{(})")
         False
     """
+
     stack = []
+    queue = deque()
+
     opening_brackets = {'(', '[', '{'}
     closing_brackets = {')', ']', '}'}
     bracket_pairs = {'(': ')', '[': ']', '{': '}'}
@@ -41,11 +47,13 @@ def validate_brackets(string):
     for char in string:
         if char in opening_brackets:
             stack.append(char)
+            queue.append(char)
         elif char in closing_brackets:
             if not stack:
                 return False
             last_opening_bracket = stack.pop()
             if bracket_pairs[last_opening_bracket] != char:
                 return False
+            queue.append(char)
     
-    return len(stack) == 0
+    return len(stack) == 0 and len(queue) % 2 == 0
