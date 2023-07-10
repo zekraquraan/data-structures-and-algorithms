@@ -3,7 +3,7 @@
 
 ## Whiteboard Process
 
-[whiteboard](./wh22.png)
+![whiteboard](./insert2.png)
 ## Approach & Efficiency
 ## Insert and shift an array in middle at index
 # Time Complexity
