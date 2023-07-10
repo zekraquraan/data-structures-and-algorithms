@@ -15,6 +15,7 @@
 [stack_queue_animal](./stack_queue_animal_shelter/stack_queue_animal.md)
 [stack-queue-brackets](./stack_queue_brackets/stack_queue_brackets.md)
 [tree_max](./tree_max/tree_max.md)
+[sorting](./sorting/sort.md)
 =======
 <!-- [linked-list](./linked-list/linked-list.md) -->
 [linked-list-insertions](./linked_list/linked_list.md)
